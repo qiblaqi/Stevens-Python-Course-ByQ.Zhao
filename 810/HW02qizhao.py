@@ -79,7 +79,6 @@ def main():
     f1Deno = getNumber("Fraction 1 denominator: ")
     f1 = Fraction(f1Numer,f1Deno)
     code = getCode("Operation (+, -, *, /, ==): ")
-    print(code)
     f2Numer = getNumber("Fraction 2 numerator: ")
     f2Deno = getNumber("Fraction 2 denominator: ")
     f2 = Fraction(f2Numer,f2Deno)
