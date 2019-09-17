@@ -21,7 +21,6 @@ def validScores(yourMsg):
 
 def getGrades(yourScores):
     #convert the numeric scores into the grades
-
     if yourScores <= 100.0 and yourScores >= 93.0:
         return "A"
     elif yourScores < 93.0 and yourScores >= 90.0:
