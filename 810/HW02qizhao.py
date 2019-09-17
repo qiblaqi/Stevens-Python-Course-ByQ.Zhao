@@ -2,7 +2,7 @@
 this is a program use Class to handle two Fractions plus, minus, mutiply, divide and
 check-out if they equals to each other
 
-
+123131321
 Written by Qi Zhao
 """
 
