@@ -1,7 +1,8 @@
 """
 this is a program use Class to handle two Fractions plus, minus, mutiply, divide and
 check-out if they equals to each other
-1123
+
+
 Written by Qi Zhao
 """
 
