@@ -36,7 +36,7 @@ class Fraction:
         return newFraction
 
     def divide(self,other):
-        #
+        #to reverse the fraction and multiply
         newFractionDeno = self.denominator * other.numerator
         newFractionNumer = self.numerator * other.denominator 
         newFraction = Fraction(newFractionNumer,newFractionDeno)
