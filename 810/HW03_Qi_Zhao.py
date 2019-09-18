@@ -2,47 +2,98 @@
 this is a program use Class to handle two Fractions plus, minus, mutiply, divide and
 check-out if they equals to each other
 
+upgraded with unittest module to build a test suite
+
 Written by Qi Zhao
 """
+
+import unittest as ut
+
+class FractionTest(ut.TestCase):
+    """ Test class of fraction which includes testing '+-*/ == >= <= != > <' """
+    def test_init(self):
+        #test deno cant be 0
+        with self.assertRaises(ValueError):
+            Fraction(1,0)
+    
+    def test_add(self):
+        #test plus function 
+        testUnit_1 = Fraction(1,3)
+        testUnit_2 = Fraction(2,5)
+        self.assertEqual(testUnit_1+testUnit_2,Fraction(11,15))
+
+    def test_sub(self):
+        #test minus function 
+        testUnit_1 = Fraction(1,3)
+        testUnit_2 = Fraction(2,5)
+        self.assertEqual(testUnit_1-testUnit_2,Fraction(-1,15))
+    
+    def test_mul(self):
+        #test multiply function 
+        testUnit_1 = Fraction(1,3)
+        testUnit_2 = Fraction(2,5)
+        self.assertEqual(testUnit_1*testUnit_2,Fraction(2,15))
+    
+    def test_truediv(self):
+        #test divide function and vailid new fraction's denominator cant be 0
+        testUnit_1 = Fraction(1,3)
+        testUnit_2 = Fraction(2,5)
+        testUnit_3 = Fraction(0,4)
+        self.assertEqual(testUnit_1/testUnit_2,Fraction(5,6))
+        with self.assertRaises(ValueError):
+            testUnit_1 / testUnit_3
+    
+    def test_eq(self):
+        #test the equal function for negative or postive fraction
+        testUnit_1 = Fraction(1,3)
+        testUnit_2 = Fraction(2,6)
+        testUnit_3 = Fraction(-1,-3)
+        self.assertTrue(testUnit_1==testUnit_2)
+        self.assertTrue(testUnit_1==testUnit_3)
+        #special test
+        self.assertTrue(Fraction(-1,3),Fraction(1,-3))
+
+
+        
 
 class Fraction:
     """ Fraction class hold numerator and dorminator with method to do + - * / == with each other """
     def __init__(self,numerator, denominator):
-        # This initiates the 
+        # This initiates the fraction's numerator and denominator
         if denominator == 0:
             raise ValueError("denominator cant be '0' !")
         self.numerator = numerator
         self.denominator = denominator
     
-    def plus(self,other):
+    def __add__(self,other):
         #plus two fraction and return a new fraction 
         newFractionDeno = self.denominator * other.denominator
         newFractionNumer = self.numerator * other.denominator + other.numerator * self.denominator
         newFraction = Fraction(newFractionNumer,newFractionDeno)
         return newFraction
     
-    def minus(self,other):
+    def __sub__(self,other):
         #two fraction minus with each other
         newFractionDeno = self.denominator * other.denominator
         newFractionNumer = self.numerator * other.denominator - other.numerator * self.denominator
         newFraction = Fraction(newFractionNumer,newFractionDeno)
         return newFraction
 
-    def times(self,other):
+    def __mul__(self,other):
         #multiply two fractions with one denominator 
         newFractionDeno = self.denominator * other.denominator
         newFractionNumer = self.numerator * other.numerator 
         newFraction = Fraction(newFractionNumer,newFractionDeno)
         return newFraction
 
-    def divide(self,other):
+    def __truediv__(self,other):
         #to reverse the fraction and multiply
         newFractionDeno = self.denominator * other.numerator
         newFractionNumer = self.numerator * other.denominator 
         newFraction = Fraction(newFractionNumer,newFractionDeno)
         return newFraction
 
-    def equal(self,other):
+    def __eq__(self,other):
         # check two fractions have the same value or not
         newFractionNumer = self.numerator * other.denominator - other.numerator * self.denominator
         if newFractionNumer == 0:
@@ -84,17 +135,22 @@ def main():
     f2 = Fraction(f2Numer,f2Deno)
     
     if code == '+':
-        finalF = f1.plus(f2)
+        finalF = f1 + f2
     elif code == '-':
-        finalF = f1.divide(f2)
+        finalF = f1 - f2
     elif code == '*':
-        finalF = f1.times(f2)
+        finalF = f1 * f2
     elif code == '/':
-        finalF = f1.divide(f2)
+        finalF = f1 / f2   
     elif code == '==':
-        f1.equal(f2)
+        finalF = f1 == f2
     print(f"{f1} {code} {f2} = {finalF}")
-   
+
+if __name__ == '__main__':
+    #main()
+    ut.main(exit=False, verbosity=2)    
+
+"""
     #testing part    
     f12 = Fraction(1, 2)
     f44 = Fraction(4, 4)
@@ -104,9 +160,5 @@ def main():
     print(f"{f44} - {f12} = {f44.minus(f12)} [4/8]")
     print(f"{f12} + {f44} = {f12.plus(f44)} [12/8]")
     print(f"{f128} == {f32} is {f128.equal(f32)} [True]")
-
-if __name__ == '__main__':
-    main()    
-
-
+"""
     
