@@ -52,9 +52,32 @@ class FractionTest(ut.TestCase):
         self.assertTrue(testUnit_1==testUnit_3)
         #special test
         self.assertTrue(Fraction(-1,3),Fraction(1,-3))
+    
+    def test_ne(self):
+        #test the not equal function 
+        testUnit_1 = Fraction(1,3)
+        testUnit_2 = Fraction(3,6)
+        self.assertTrue(testUnit_1!=testUnit_2)
+    
+    def test_lt(self):
+        #give two fractions check if self < other
+        self.assertTrue(Fraction(1,3)<Fraction(2,4))
+        self.assertFalse(Fraction(1,4)<Fraction(1,5))
+    
+    def test_gt(self):
+        #check the greater than function
+        self.assertTrue(Fraction(1,2)>Fraction(1,3))
 
+    def test_ge(self):
+        #check the greater than or equal to function, two steps 1.test '>'  2. test '='
+        self.assertTrue(Fraction(1,2)>=Fraction(1,3))
+        self.assertTrue(Fraction(1,2)>=Fraction(2,4))
+    
+    def test_le(self):
+        #check the less than or equal to, like test_ge
+        self.assertTrue(Fraction(1,3)<=Fraction(1,2))
+        self.assertTrue(Fraction(1,3)<=Fraction(2,6))
 
-        
 
 class Fraction:
     """ Fraction class hold numerator and dorminator with method to do + - * / == with each other """
@@ -101,6 +124,26 @@ class Fraction:
         else:
             return False
     
+    def __ne__(self,other):
+        #check two fractions are not the same by using __eq__ function
+        return not(self==other)
+
+    def __lt__(self,other):
+        #check self fraction is less than other fraction or not with
+        return (self.numerator*other.denominator-self.denominator*other.numerator)<0 
+        
+    def __gt__(self,other):
+        #check self fraction is greater than other fraction
+        return (self.numerator*other.denominator-self.denominator*other.numerator)>0
+    
+    def __ge__(self,other):
+        #check self >= other with using __lt__ function
+        return not(self<other)
+    
+    def __le__(self,other):
+        #check self <= other with using __gt__ function
+        return not(self>other)
+
     def __str__(self):
         #output the fraction in a mathmetics way like '1/2' for f12
         return f"{self.numerator}/{self.denominator}"
