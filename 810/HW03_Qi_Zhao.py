@@ -61,8 +61,8 @@ class FractionTest(ut.TestCase):
     
     def test_lt(self):
         #give two fractions check if self < other
-        self.assertTrue(Fraction(1,3)<Fraction(2,4))
-        self.assertFalse(Fraction(1,4)<Fraction(1,5))
+        self.assertTrue(Fraction(-1,3)<Fraction(2,4))
+        self.assertFalse(Fraction(1,-4)<Fraction(1,5))
     
     def test_gt(self):
         #check the greater than function
