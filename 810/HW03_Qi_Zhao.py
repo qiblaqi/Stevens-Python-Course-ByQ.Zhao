@@ -9,7 +9,7 @@ Written by Qi Zhao
 
 import unittest as ut
 
-class FractionTest(ut.TestCase):
+class TestFraction(ut.TestCase):
     """ Test class of fraction which includes testing '+-*/ == >= <= != > <' """
     def test_init(self):
         #test deno cant be 0
@@ -62,21 +62,25 @@ class FractionTest(ut.TestCase):
     def test_lt(self):
         #give two fractions check if self < other
         self.assertTrue(Fraction(-1,3)<Fraction(2,4))
-        self.assertFalse(Fraction(1,-4)<Fraction(1,5))
+        self.assertTrue(Fraction(1,-4)<Fraction(1,5))
+        self.assertFalse(Fraction(1,3)<Fraction(1,-3))
     
     def test_gt(self):
         #check the greater than function
         self.assertTrue(Fraction(1,2)>Fraction(1,3))
+        self.assertFalse(Fraction(1,-3)>Fraction(1,2))
 
     def test_ge(self):
         #check the greater than or equal to function, two steps 1.test '>'  2. test '='
         self.assertTrue(Fraction(1,2)>=Fraction(1,3))
         self.assertTrue(Fraction(1,2)>=Fraction(2,4))
+        self.assertFalse(Fraction(1,4)>=Fraction(1,2))
     
     def test_le(self):
         #check the less than or equal to, like test_ge
         self.assertTrue(Fraction(1,3)<=Fraction(1,2))
-        self.assertTrue(Fraction(1,3)<=Fraction(2,6))
+        self.assertTrue(Fraction(1,-3)<=Fraction(2,6))
+        self.assertFalse(Fraction(1,3)<=Fraction(1,4))
 
 
 class Fraction:
@@ -130,11 +134,18 @@ class Fraction:
 
     def __lt__(self,other):
         #check self fraction is less than other fraction or not with
-        return (self.numerator*other.denominator-self.denominator*other.numerator)<0 
+        if self.denominator*other.denominator>0:
+            return (self.numerator*other.denominator-self.denominator*other.numerator)<0
+        elif self.denominator*other.denominator<0:
+            return (self.numerator*other.denominator-self.denominator*other.numerator)>0
+         
         
     def __gt__(self,other):
         #check self fraction is greater than other fraction
-        return (self.numerator*other.denominator-self.denominator*other.numerator)>0
+        if self.denominator*other.denominator>0:
+            return (self.numerator*other.denominator-self.denominator*other.numerator)>0
+        elif self.denominator*other.denominator<0:
+            return (self.numerator*other.denominator-self.denominator*other.numerator)<0
     
     def __ge__(self,other):
         #check self >= other with using __lt__ function
@@ -193,15 +204,3 @@ if __name__ == '__main__':
     #main()
     ut.main(exit=False, verbosity=2)    
 
-"""
-    #testing part    
-    f12 = Fraction(1, 2)
-    f44 = Fraction(4, 4)
-    f128 = Fraction(12, 8)
-    f32 = Fraction(3, 2)
-    print(f"{f12} + {f12} = {f12.plus(f12)} [4/4]")
-    print(f"{f44} - {f12} = {f44.minus(f12)} [4/8]")
-    print(f"{f12} + {f44} = {f12.plus(f44)} [12/8]")
-    print(f"{f128} == {f32} is {f128.equal(f32)} [True]")
-"""
-    
