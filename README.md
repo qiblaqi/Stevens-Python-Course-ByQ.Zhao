@@ -1,8 +1,8 @@
 # Stevens Python Course
 SSW-540,810,etc 
 
-I want to update my README File at this time. 
+## week 03 
+540 Quiz 1 : 76.25 (this is really bad :( )
 
-# Really ahaha good 火花
-ssw
-sssw
+## week 04 
+810 p3 : 95 (forget to test what if wrong answers come out and the lessThan '<' function logical errors)
