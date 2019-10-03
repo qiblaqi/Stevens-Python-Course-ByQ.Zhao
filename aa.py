@@ -1,4 +1,5 @@
 import unittest
+import HW05_Qi_Zhao as HW05
 '''
 class C1:
     def __init__(self,gg):
@@ -37,7 +38,9 @@ def twoSum(nums: [int], target: int) -> [int]:
         return [-1, -1]
 
 ab = twoSum([3,3,3,3,5,5,7],6)
-print(ab)
+#print(ab)
 
 a = "aaasasaaaa"
 a = a+"cc"
+HW05.rev
+print(list(HW05.rev_en))
