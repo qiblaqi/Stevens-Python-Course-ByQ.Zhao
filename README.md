@@ -18,3 +18,4 @@ forget to test what if wrong answers come out and the lessThan '<' function logi
 
 ## week 07
 540 Quiz 2 : 95.2 # actually not bad :)
+## week 08
