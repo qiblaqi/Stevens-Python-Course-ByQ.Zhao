@@ -4,7 +4,7 @@ SSW-540,810 in Stevens Institute of Techonology MS in Software Engineering 2019 
 
 ## week 03
 
-540 Quiz 1 : 76.25 ( this is really bad :( )
+540 Quiz 1 : 76.25 # this is really bad :(
 
 ## week 04
 
@@ -17,4 +17,4 @@ SSW-540,810 in Stevens Institute of Techonology MS in Software Engineering 2019 
 
 ## week 07
 
-540 Quiz 2 : 95.2 ( actually not bad :) )
+540 Quiz 2 : 95.2 # actually not bad :)
