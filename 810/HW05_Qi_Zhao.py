@@ -9,12 +9,12 @@ def reverse(s):
     new_s = []
     for i in range(len(s)):
         new_s.append(i)
-    for offset,val in enumerate(s):
+    for offset,  val in enumerate(s):
         new_s[len(s)-offset-1] = val
     new_s = str(new_s)
-    new_s = new_s.replace(", ","")
+    new_s = new_s.replace(", ", "")
     new_s = new_s.strip("[]")
-    new_s = new_s.replace("'","")
+    new_s = new_s.replace("'", "")
     return new_s
 
 def rev_enumerate(seq):

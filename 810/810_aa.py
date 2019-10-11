@@ -1,4 +1,4 @@
-import HW05_Qi_Zhao as HW05
+import HW06_Qi_Zhao as HW05
 """
 a = "abcd123"
 result_1 = [
@@ -18,5 +18,5 @@ x = txt.find("w", 2)
 print(x)
 """
 
-a = list(HW05.get_lines(""))
+a = HW05.insertion_sort([])
 print(a)
