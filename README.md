@@ -8,7 +8,8 @@ SSW-540,810 in Stevens Institute of Techonology MS in Software Engineering 2019 
 
 ## week 04
 
-810 p3 : 95__
+810 p3 : 95
+
 (forget to test what if wrong answers come out and the lessThan '<' function logical errors)
 
 ## week 05
